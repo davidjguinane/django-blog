@@ -1,0 +1,79 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<title>
+
+	Blarg {% block title %}  {% endblock %}
+
+</title>
+
+	<!-- CSS reset -->
+	<link rel="stylesheet" type="text/css" href="{% static 'css/reset.css' %}"> 
+	<!-- Latest compiled and minified Bootstrap CSS -->
+	<link rel="stylesheet" type="text/css" href="{% static 'bootstrap/css/bootstrap.css' %}"> 
+	<!-- Blogsite CSS -->
+	<link rel="stylesheet" type="text/css" href="{% static 'css/blogsite.css' %}">
+	<!-- Add icon library -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
+
+</head>
+
+<body>
+
+	<nav class="navbar navbar-light bg-faded">
+		<a class="navbar-brand" href="#">Dev</a>
+		<ul class="nav navbar-nav">
+			<li class="nav-item active">
+				<a class="nav-link" href="#">Home<span class="sr-only">(current)</span></a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="#">Blog</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="#">Youtube</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="{% url 'polls:index' %}">Polls</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="#">Apps</a>
+			</li>
+		</ul>
+		<form class="form-inline float-xs-right">
+			<input class="form-control" type="text" placeholder="Search">
+			<button class="btn btn-outline-success" type="submit">Search</button>
+		</form>
+	</nav>
+
+	<div class="content container">
+
+		<div class="row">
+
+			<div class="col-md-8">
+
+			{% block content %}
+
+			{% endblock %}
+
+			</div>
+
+		</div>
+
+	</div>
+
+	<!-- jQuery library -->
+	<script type="text/javascript" src="{% static 'umanity/js/jquery-3.1.1.js' %}"></script>
+
+	<!-- Ajax Functions -->
+
+	<!-- Latest compiled JavaScript -->
+	<script type="text/javascript" src="{% static 'umanity/bootstrap/js/bootstrap.js' %}"></script>
+
+</body>
+
+</html>
