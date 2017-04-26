@@ -1,0 +1,22 @@
+.portfolio-max-width {
+  max-width: 900px;
+  margin: auto;
+}
+
+.portfolio-card .mdl-card__title {
+  padding-bottom: 0;
+}
+
+.mdl-section {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+.section-color-grey {
+  background-color: #F5F5F5;
+}
+
+img.article-image {
+  width: 100%;
+  height: auto;
+}

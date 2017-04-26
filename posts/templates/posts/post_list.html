@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block content %}
+
+<section class="mdl-section section-color-grey">
+    <div class="mdl-grid portfolio-max-width">
+        {% for post in posts %}
+        <div class="mdl-cell mdl-cell--12-col mdl-card mdl-shadow--4dp portfolio-card">
+            <div class="mdl-card__media">
+                <img class="blog-image" src="{% static 'img/space.jpg' %}">
+            </div>
+            <div class="mdl-card__title mdl-card--expand">
+                <h2 class="mdl-card__title-text">{{ post.title }}</h2>
+            </div>
+            <div class="mdl-card__supporting-text">
+                {{ post.summary }}
+            </div>
+            <div class="mdl-card__actions mdl-card--border">
+                <a href="{% url 'posts:post_detail' post.pk %}" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+                Read more
+                </a>
+            </div>
+        </div>
+        {% endfor %}
+        <nav class="mdl-cell mdl-cell--12-col">
+            <span class="current">
+                Page {{ posts.number }} of {{ posts.paginator.num_pages }}
+            </span>
+            {% if posts.has_previous %}
+                <a href="?page={{ posts.previous_page_number }}" class="demo-nav__button" title="show more">
+                Previous
+                <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" data-upgraded=",MaterialButton,MaterialRipple">
+                    <i class="material-icons" role="presentation">arrow_backward</i>
+                <span class="mdl-button__ripple-container"><span class="mdl-ripple"></span></span></button>
+                </a>
+            {% endif %}
+            {% if posts.has_next %}
+                <a href="?page={{ posts.next_page_number }}" class="demo-nav__button" title="show more">
+                Next
+                <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" data-upgraded=",MaterialButton,MaterialRipple">
+                    <i class="material-icons" role="presentation">arrow_forward</i>
+                <span class="mdl-button__ripple-container"><span class="mdl-ripple"></span></span></button>
+                </a>
+            {% endif %}            
+        </nav>
+    </div>
+</section>
+
+{% endblock %}

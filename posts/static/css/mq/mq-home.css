@@ -1,0 +1,12 @@
+/* For Landing Page: */
+@media screen and (max-width: 320px) and (min-width: 0px) {
+  .skills{font-size: 20px;}
+  .col-6{max-width: 100%; width: 100%;}
+  .col-4{max-width: 100%; width: 100%;}
+  .col-8{max-width: 100%; width: 100%;}
+  .row-flex{  -webkit-flex-direction: column; flex-direction: column;}
+  .img-portfolio{width: 75%;}
+  .text-portfolio{width: 100%;}
+  .blog-links{margin-top: 1.5rem;}
+}
+

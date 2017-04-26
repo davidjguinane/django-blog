@@ -27,6 +27,16 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+# SMTP/Email configuration
+EMAIL_USE_SSL = True
+EMAIL_TIMEOUT = 1800
+DEFAULT_FROM_EMAIL = 'dg.test.dev@gmail.com'
+SERVER_EMAIL = 'dg.test.dev@gmail.com'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 465
+EMAIL_HOST_USER = 'dg.test.dev@gmail.com'
+EMAIL_HOST_PASSWORD = 'eWiZ4rDg4m1ng'
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 
 # Application definition
 
@@ -37,9 +47,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'blogsite.apps.BlogsiteConfig',
+    'posts',
     'blog',
-    'polls.apps.PollsConfig'
 ]
 
 MIDDLEWARE = [
@@ -61,7 +70,6 @@ TEMPLATES = [
                 os.path.join(BASE_DIR, 'templates'),
                 'blogsite/templates/blogsite/',
                 'blog/templates/blog/',
-                'polls/templates/polls/'
                 ],
         'APP_DIRS': True,
         'OPTIONS': {
@@ -128,3 +136,5 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR,'static')
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR,'media')
