@@ -16,6 +16,10 @@
   background-color: #F5F5F5;
 }
 
+.section-color-black {
+  background-color: #424242;
+}
+
 img.article-image {
   width: 100%;
   height: auto;

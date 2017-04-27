@@ -1,0 +1,161 @@
+{% extends "blog/base.html" %}
+
+{% load static %}
+
+{% block title %} {% endblock %}
+
+{% block tabs %} 
+
+<div class="mdl-layout__tab-bar mdl-js-ripple-effect">
+  <a href="#fixed-tab-1" class="mdl-layout__tab is-active">Current</a>
+  <a href="#fixed-tab-2" class="mdl-layout__tab">Forecasted</a>
+</div>
+
+{% endblock %}
+
+{% block tabscontent %}
+<section class="mdl-layout__tab-panel is-active" id="fixed-tab-1">
+    <div class="mdl-grid portfolio-max-width">
+        <div class="mdl-cell mdl-cell--12-col">
+          <div class="page-content">
+            <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp">
+              <thead>
+                <tr>
+                    <th class="mdl-data-table__cell--non-numeric">Surf Report</th>
+                    <th>Value</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="mdl-data-table__cell--non-numeric">Breaking Wave Height</td>
+                  <td>0.8m</td>
+                </tr>
+                <tr>
+                  <td class="mdl-data-table__cell--non-numeric">Breaking Wave Angle of Incidence</td>
+                  <td>30</td>
+                </tr>
+                <tr>
+                  <td class="mdl-data-table__cell--non-numeric">Water Depth at Breaking</td>
+                  <td>1.2m</td>
+                </tr>
+                <tr>
+                  <td class="mdl-data-table__cell--non-numeric">Breaking Type</td>
+                  <td>Plunging</td>
+                </tr>
+              </tbody>
+            </table>
+            <div>
+                *Forecast is currently 5 hours behind real time. 
+            </div>
+          </div>
+        </div>
+    </div>
+</section>
+<section class="mdl-layout__tab-panel" id="fixed-tab-2">
+    <div class="mdl-grid portfolio-max-width">
+        <div class="mdl-cell mdl-cell--12-col">
+          <div class="page-content">Forecasted AI Prediction</div>
+        </div>
+    </div>
+</section>
+{% endblock %}  
+
+{% block content %}
+
+<section class="mdl-section section-color-grey">
+    <div class="mdl-grid portfolio-max-width">
+        <div class="mdl-cell mdl-cell--6-col mdl-card mdl-shadow--4dp portfolio-card">
+            <div class="mdl-card__title mdl-card--expand">
+                <h2 class="mdl-card__title-text">Breaking wave height</h2>
+            </div>
+            <div class="mdl-card__supporting-text">
+                Explanation 
+            </div>
+            <div class="mdl-card__actions mdl-card--border">
+                <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+                Read more
+                </a>
+            </div>               
+        </div>
+        <div class="mdl-cell mdl-cell--6-col mdl-card mdl-shadow--4dp portfolio-card">
+            <div class="mdl-card__title mdl-card--expand">
+                <h2 class="mdl-card__title-text">Angle of incidence</h2>
+            </div>
+            <div class="mdl-card__supporting-text">
+                Explanation 
+            </div>
+            <div class="mdl-card__actions mdl-card--border">
+                <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+                Read more
+                </a>
+            </div>              
+        </div>
+        <div class="mdl-cell mdl-cell--6-col mdl-card mdl-shadow--4dp portfolio-card">
+            <div class="mdl-card__title mdl-card--expand">
+                <h2 class="mdl-card__title-text">Water depth</h2>
+            </div>
+            <div class="mdl-card__supporting-text">
+                Explanation 
+            </div>
+            <div class="mdl-card__actions mdl-card--border">
+                <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+                Read more
+                </a>
+            </div>              
+        </div>
+        <div class="mdl-cell mdl-cell--6-col mdl-card mdl-shadow--4dp portfolio-card">
+            <div class="mdl-card__title mdl-card--expand">
+                <h2 class="mdl-card__title-text">Breaking Type</h2>
+            </div>
+            <div class="mdl-card__supporting-text">
+                Explanation 
+            </div>
+            <div class="mdl-card__actions mdl-card--border">
+                <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+                Read more
+                </a>
+            </div>              
+        </div>
+    </div>
+</section>
+<section class="mdl-section">
+    <div class="mdl-grid portfolio-max-width">
+        <div class="mdl-cell mdl-cell--12-col">
+            <h5>wAIve was made using scientific Python libraries</h5>
+        </div>
+    </div>
+</section>
+<section class="mdl-section section-color-black">
+    <div class="mdl-grid portfolio-max-width">
+        <div class="mdl-cell mdl-cell--12-col">
+            <h6>Want wAIve for your surf break? Get the code!</h6>
+        </div>
+    </div>
+</section>
+<section class="mdl-section">
+    <div class="mdl-grid portfolio-max-width">
+        <div class="mdl-cell mdl-cell--12-col">
+            <h5>Made using Open Data from</h5>
+            <img src="{% static 'waive/qldgov.png' %}">
+        </div>
+    </div>
+</section>
+<section class="mdl-section section-color-grey">
+    <div class="mdl-grid portfolio-max-width">
+        <div class="mdl-cell mdl-cell--12-col">
+            <h4>Wave monitoring disclaimer</h4>
+
+            <p>These pages copyright ©2015 Queensland Government (Department of Science, Information Technology and Innovation).</p>
+
+            <p>The materials presented on this web site are distributed by the Queensland Government as an information source only.</p>
+
+            <p>While reasonable care and attention has been exercised in the collection and processing of this data it must be treated as unverified.</p>
+
+            <p>The State of Queensland makes no statements, representations or warranties about the accuracy or completeness of, and you should not rely on, any information contained on this web site. The State of Queensland disclaims all responsibility for information contained on this web site and all liability (including without limitation, liability in negligence) for all expenses, losses, damages and costs you may incur as a result of the information being inaccurate or incomplete in any way for any reason.</p>
+
+            <p>You should always check with the Bureau of Meteorology for the latest weather and coastal waters forecasts for your area before putting to sea.</p>            
+        </div>
+    </div>
+</section>
+
+{% endblock %}

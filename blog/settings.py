@@ -26,7 +26,9 @@ SECRET_KEY = '*bf*u6mi5h%g(eq&-=n=lt0ohn%h202^s9uwu+796jy))adoz%'
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    '13.55.102.210'
+    '13.55.102.210',
+    'localhost', 
+    '127.0.0.1'
 ]
 
 # SMTP/Email configuration
@@ -51,6 +53,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'posts',
     'blog',
+    'waive'
 ]
 
 MIDDLEWARE = [
@@ -72,6 +75,7 @@ TEMPLATES = [
                 os.path.join(BASE_DIR, 'templates'),
                 'blogsite/templates/blogsite/',
                 'blog/templates/blog/',
+                'waive/templates/waive'
                 ],
         'APP_DIRS': True,
         'OPTIONS': {

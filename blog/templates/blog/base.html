@@ -37,18 +37,11 @@
 	      <nav class="mdl-navigation mdl-layout--large-screen-only">
 	      	<a class="mdl-navigation__link" href="{% url 'home' %}">Portfolio</a>
 	        <a class="mdl-navigation__link" href="{% url 'posts:post_list' %}">Blog</a>
-	        <a class="mdl-navigation__link" href="#">wAIve</a>
+	        <a class="mdl-navigation__link" href="{% url 'waive:waive' %}">wAIve</a>
 	      </nav>
 	    </div>
-	    <!-- Tabs -->
 	    {% block tabs %}
-	    <!--
-	    <div class="mdl-layout__tab-bar mdl-js-ripple-effect">
-	      <a href="#fixed-tab-1" class="mdl-layout__tab is-active">Tab 1</a>
-	      <a href="#fixed-tab-2" class="mdl-layout__tab">Tab 2</a>
-	      <a href="#fixed-tab-3" class="mdl-layout__tab">Tab 3</a>
-	    </div>
-	    -->
+
 	    {% endblock %}
 	  </header>
 	  <div class="mdl-layout__drawer">
@@ -56,22 +49,12 @@
 	    <nav class="mdl-navigation">
 	    	<a class="mdl-navigation__link" href="{% url 'home' %}">Portfolio</a>
 	        <a class="mdl-navigation__link" href="{% url 'posts:post_list' %}">Blog</a>
-	        <a class="mdl-navigation__link" href="#">wAIve</a>
+	        <a class="mdl-navigation__link" href="{% url 'waive:waive' %}">wAIve</a>
 	    </nav>
 	  </div>
 	  <main class="mdl-layout__content">
 	  	{% block tabscontent %}
-	  	<!--
-	    <section class="mdl-layout__tab-panel is-active" id="fixed-tab-1">
-	      <div class="page-content"><your content here></div>
-	    </section>
-	    <section class="mdl-layout__tab-panel" id="fixed-tab-2">
-	      <div class="page-content"><your content here></div>
-	    </section>
-	    <section class="mdl-layout__tab-panel" id="fixed-tab-3">
-	      <div class="page-content"><your content here></div>
-	    </section>
-	    -->
+
 	    {% endblock %}
 	    <div class="page-content">
 	    	{% block content %}
