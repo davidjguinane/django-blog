@@ -25,7 +25,9 @@ SECRET_KEY = '*bf*u6mi5h%g(eq&-=n=lt0ohn%h202^s9uwu+796jy))adoz%'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    '13.55.102.210'
+]
 
 # SMTP/Email configuration
 EMAIL_USE_SSL = True
