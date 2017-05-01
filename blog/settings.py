@@ -30,7 +30,7 @@ ALLOWED_HOSTS = [
     '127.0.0.1',
     'www.xavid.io',
     'xavid.io',
-    '172.31.7.62'
+    '13.55.136.6'
 ]
 
 # SMTP/Email configuration
