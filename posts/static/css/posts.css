@@ -7,6 +7,19 @@
   padding-bottom: 0;
 }
 
+form div.mdl-textfield {
+  width: 100%;
+}
+
+.mdl-grid-align-center {
+  align-items: center;
+  justify-content: center;
+}
+
+.mdl-cell-align-center {
+  text-align: center;
+}
+
 .mdl-section {
   padding-top: 1rem;
   padding-bottom: 1rem;
@@ -20,6 +33,24 @@
   background-color: #424242;
 }
 
+.section-color-dark-grey {
+  background-color: #E0E0E0;
+}
+
+.mdl-font-text {
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0;
+}
+
+.mdl-font-black {
+  color: #424242;
+}
+
+.mdl-font-bold {
+    font-weight: 500;
+}
+
 img.article-image {
   width: 100%;
   height: auto;
@@ -29,4 +60,91 @@ img.blog-image {
   max-height: 150px;
   width: 100%;
   object-fit: cover;
+}
+
+#loader {
+  display: none;
+}
+
+#surfTable {
+  width: 100%;
+}
+
+#surfTable thead {
+  width: 100%;
+}
+
+img.responsive-image {
+  max-width: 300px;
+  height: auto;
+}
+
+img.social-media-icon {
+  max-width: 64px;
+  height: auto;
+  padding: 0.5rem;
+}
+
+.mdl-font-text-center {
+  text-align: center;
+  margin: 0;
+}
+
+.mdl-flat-card {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  font-size: 16px;
+  font-weight: 400;
+  min-height: 200px;
+  overflow: hidden;
+  width: 100%;
+  z-index: 1;
+  position: relative;
+  background: #EEEEEE;
+  border: 1px solid #bdbdbd;
+  border-radius: 8px;
+  box-sizing: border-box;
+}
+
+.mdl-flat-card__media {
+    background-repeat: repeat;
+    background-position: 50% 50%;
+    background-size: cover;
+    background-origin: padding-box;
+    background-attachment: scroll;
+    box-sizing: border-box;
+}
+
+.mdl-flat-card__title {
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  color: #000;
+  display: block;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-justify-content: stretch;
+  -ms-flex-pack: stretch;
+  justify-content: stretch;
+  line-height: normal;
+  padding: 1rem;
+  -webkit-perspective-origin: 165px 56px;
+  perspective-origin: 165px 56px;
+  -webkit-transform-origin: 165px 56px;
+  transform-origin: 165px 56px;
+  box-sizing: border-box;
+}
+
+.mdl-flat-card__text {
+  color: rgba(0,0,0,.54);
+  font-size: 1rem;
+  line-height: 18px;
+  overflow: hidden;
+  padding: 16px;
+  width: 90%;
 }

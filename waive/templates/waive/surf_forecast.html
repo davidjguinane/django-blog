@@ -1,0 +1,43 @@
+<div id="loader">
+  <div>Fetching current wavebuoy data..</div>
+  <div id="p2" class="mdl-progress mdl-js-progress mdl-progress__indeterminate"></div>
+</div>
+<table id="surfTable" class="mdl-data-table mdl-js-data-table mdl-shadow--2dp">
+  <thead>
+    <tr>
+        <th class="mdl-data-table__cell--non-numeric">Surf Report</th>
+        <th>Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td class="mdl-data-table__cell--non-numeric">Breaking Wave Height</td>
+      <td id="breaking-wave-height"></td>
+    </tr>
+    <tr>
+      <td class="mdl-data-table__cell--non-numeric">Breaking Wave Angle of Incidence</td>
+      <td id="breaking-wave-angle"></td>
+    </tr>
+    <tr>
+      <td class="mdl-data-table__cell--non-numeric">Water Depth at Breaking</td>
+      <td id="water-depth"></td>
+    </tr>
+    <tr>
+      <td class="mdl-data-table__cell--non-numeric">Breaking Type</td>
+      <td id="breaking-type"></td>
+    </tr>
+    <tr>
+      <td class="mdl-data-table__cell--non-numeric">Sea Surface Temperature</td>
+      <td id="surface-temp"> </td>
+    </tr>
+  </tbody>
+</table>
+<div id="forecast-date">
+    
+</div>
+<div id="test">
+  {% for result in data %}
+    {{ result }}
+  {% endfor %}
+  {{ fdate }}
+</div>

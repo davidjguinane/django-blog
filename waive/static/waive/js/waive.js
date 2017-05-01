@@ -1,50 +1,4 @@
 jQuery(document).ready(function(){
-    // Linear wave calculator --------------------------------------------------
-    jQuery('#button').click(function(){
-    	var rho = 1025;
-    	var g = 9.81;
-        var h = jQuery('input[name=WD]').val();
-        var Tp = jQuery('input[name=Per]').val();
-        var Hei = jQuery('input[name=Hei]').val();
-        var Hrms = Hei/1.416
-        var Tm = Tp*0.86
-        var tol = 0.001;
-        var L = dispRel(h,Tm,tol);
-        var k = 2*Math.PI/L;
-        var om = 2*Math.PI/Tm;
-        var c = L/Tm;
-        var n = 0.5*(1+2*k*h/(sinh(2*k*h)));
-        var cg = c*n;
-        var errorMessage = 'Check the parameters'
-
-        
-        relDepth = h/L;
-        if (relDepth<0.05) {
-        	var depthRegime = 'Shallow waters'
-        } else if (relDepth>0.5) {
-        	var depthRegime = 'Deep waters'
-        } else {
-        	var depthRegime = 'Intermediate waters'
-        };
-        
-        if (Hei>0 && h>0 && Tp>0 && Hrms/L<0.142 && Hrms/h<0.8) {
-        	var u = Hrms/2*om*cosh(k*h)/sinh(k*h);
-        	var w = Hrms/2*om;
-        	var E = 1/8*rho*g*Math.pow(Hrms,2);
-        	var Mf = E/c;
-        	var Sxx = E*(2*n-0.5);
-        	var F = E*cg;
-            jQuery('#item0').html('<td id="item0"> Mean Wave Length  = ' + L.toFixed(2) + ' m<br>Wave Celerity  = ' + c.toFixed(2) + ' m/s<br>Group Celerity = '+cg.toFixed(2)+' m/s<br>Relative Depth = '+relDepth.toFixed(2)+'<br>Regime = '+depthRegime+' <br>Max. Horizontal Velocity = '+u.toFixed(2)+' m/s<br>Max. Vertical Velocity = '+w.toFixed(2)+' m/s<br>Mass Flux = '+Mf.toFixed(2)+' kg/(ms)<br>Radiation Stress = '+Sxx.toFixed(2)+' N/m<br>Energy Flux = '+F.toFixed(2)+' W/m</td>');
-        }
-        else if (Hei.length==0 && h>0 && Tp>0 && Hrms/L<0.142 && Hrms/h<0.8)  {
-        	jQuery('#item0').html('<td id="item0"> Mean Wave Length  = ' + L.toFixed(2) + ' m<br>Wave Celerity  = ' + c.toFixed(2) + ' m/s<br>Group Celerity = '+cg.toFixed(2)+' m/s<br>Relative Depth = '+relDepth.toFixed(2)+'<br>Regime = '+depthRegime+' <br>Max. Horizontal Velocity = ...<br>Max. Vertical Velocity = ...<br>Mass Flux = ...<br>Radiation Stress = ...<br>Energy Flux = ...</td>');
-        }
-        else {
-            jQuery('#item0').html('<td id="item0"> Mean Wave Length  = ' + errorMessage + ' <br>Wave Celerity  = ' + errorMessage + ' <br>Group Celerity = '+errorMessage+' <br>Relative Depth = '+errorMessage+'<br>Regime = '+errorMessage+' <br>Max. Horizontal Velocity = '+errorMessage+'<br>Max. Vertical Velocity = '+errorMessage+'<br>Mass Flux = '+errorMessage+'<br>Radiation Stress = '+errorMessage+'<br>Energy Flux = '+errorMessage+'</td>');
-        }
-
-
-    });
 
     // Surf Wave Calculator ------------------------------------------------------
     jQuery('#buttonSurf').click(function(){
@@ -202,47 +156,6 @@ jQuery(document).ready(function(){
         else {
             jQuery('#item10').html('<td id="item10"> Breaking Wave Height  = ' + errorMessage + ' <br>Breaking Wave Angle of Incidence  = ' + errorMessage + ' <br>Breaking Water Depth = '+errorMessage+' <br>Iribarren Number = '+errorMessage+'<br>Breaking Type = '+errorMessage+' </td>');
         }
-    });
-
-    // Wave Generation Calculator ---------------------------------------------
-    jQuery('#buttonSPM').click(function(){
-        var g = 9.81;
-        var U = jQuery('input[name=Wind]').val()*1852/3600; // from knots to m/s
-        var X = jQuery('input[name=Fet]').val()*1000; // from km to m
-        var t = jQuery('input[name=Dur]').val()*3600; // from h to s
-        var errorMessage = 'Check the parameters'
-        var Ua = 0.71*Math.pow(U,1.23) // U from SPM
-
-        var Hm0F = 1.6*Math.pow(10,-3)*Math.pow(g*X/Math.pow(Ua,2),0.5)*Math.pow(Ua,2)/g
-        var TpF = 0.286*Math.pow(g*X/Math.pow(Ua,2),0.33)*Ua/g
-
-        var Hm0t = 8.033*Math.pow(10,-5)*Math.pow(g*t/Ua,5/7)*Math.pow(Ua,2)/g
-        var Tpt = 5.95*Math.pow(10,-2)*Math.pow(g*t/Ua,3/7)*Ua/g
-
-        var Hm0Max = 0.243*Math.pow(Ua,2)/g
-        var TpMax = 8.134*Ua/g
-
-        if (U>0 && X>0 && t>0) {
-            if (Hm0t<Hm0F) {
-                if (Hm0Max<Hm0t){
-                    jQuery('#item17').html('<td id="item17"> Significant Wave Height  = ' + Hm0Max.toFixed(2) + ' m<br>Peak Wave Period  = ' + Math.min(Tpt,TpMax).toFixed(2) + ' s<br>Wave growth limited by: fully developed sea</td>');
-                }
-                else {
-                    jQuery('#item17').html('<td id="item17"> Significant Wave Height  = ' + Hm0t.toFixed(2) + ' m<br>Peak Wave Period  = ' + Math.min(Tpt,TpF).toFixed(2) + ' s<br>Wave growth limited by: duration</td>');
-                }
-            }
-            else{ 
-                if (Hm0Max<Hm0F){
-                    jQuery('#item17').html('<td id="item17"> Significant Wave Height  = ' + Hm0Max.toFixed(2) + ' m<br>Peak Wave Period  = ' + Math.min(TpF,TpMax).toFixed(2) + ' s<br>Wave growth limited by: fully developed sea</td>');
-                }
-                else {
-                   jQuery('#item17').html('<td id="item17"> Significant Wave Height  = ' + Hm0F.toFixed(2) + ' m<br>Peak Wave Period  = ' + Math.min(Tpt,TpF).toFixed(2) + ' s<br>Wave growth limited by: fetch</td>');
-                }
-            }
-        } 
-        else{
-            jQuery('#item17').html('<td id="item17"> Significant Wave Height  = ' + errorMessage + '<br>Peak Wave Period  = ' + errorMessage + '<br>Wave growth limited by: '+ errorMessage +'</td>');
-        }  
     });
 
 });

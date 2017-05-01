@@ -4,59 +4,40 @@ from .models import Post
 from .forms import PostForm, ContactForm
 import datetime
 from django.views.generic import *
+from django.template.loader import get_template
+from django.core.mail import EmailMessage
+from django.shortcuts import render
 
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 class HomeView(FormView):
 
 	template_name = "posts/home.html"
+	form_class = ContactForm
 
-	def get_success_url(self):
-		return reverse('success')
-
-	def get(self, request):
-		return render(request, self.template_name)
-
-	@staticmethod
-	def validate_email_address(email):
-	
-	#This method here validates the if the input is an email address or not. 
-	#Its return type is boolean, True if the input is a email address or False if its not.
-		try:
-			validate_email(email)
-			return True
-		except ValidationError:
-			return False
-
-	'''def post(self, request, *args, **kwargs):
-	
-	# A normal post request which takes input from field "email"
-	
+	def post(self, request, *args, **kwargs):
 		form = self.form_class(request.POST)
 		if form.is_valid():
-			name = form.cleaned_data["name"]
-			email = form.cleaned_data["email"]
-			message = form.cleaned_data["message"]
-			if self.validate_email_address(data) is True:
-				c = {
-					'email': 'david.j.guinane@gmail.com',
-					'domain': request.META['HTTP_HOST'],
-					'site_name': 'Davids blog',
-					'protocol': 'http',
-					}
-					subject_template_name='posts/contact-form-subject.txt' 
-					email_template_name='posts/contact-form.html'    
-					subject = loader.render_to_string(subject_template_name, c)
-					# Email subject *must not* contain newlines
-					subject = ''.join(subject.splitlines())
-					email = loader.render_to_string(email_template_name, c)
-					send_mail(subject, email, DEFAULT_FROM_EMAIL , , fail_silently=False)
-				result = self.form_valid(form)
-				return result
-			else:
-				result = self.form_invalid(form)
-				return result
-'''
+			contact_name = request.POST.get('contact_name','')
+			contact_email = request.POST.get('contact_email','')
+			form_content = request.POST.get('content','')
+			# Email the profile with the contact information
+			template = get_template('posts/contact_template.txt')
+			context = {
+				'contact_name': contact_name,
+				'contact_email': contact_email,
+				'form_content': form_content,
+			}
+			content = template.render(context)
+			email = EmailMessage(
+				"New contact form submission",
+				content,
+				"Xavid" +'',
+				['david.j.guinane@gmail.com'],
+				headers = {'Reply-To': contact_email }
+			)
+			email.send()
+		return render(request, 'posts/home.html', {'form': form} )
 
 class PostList(View):
 
