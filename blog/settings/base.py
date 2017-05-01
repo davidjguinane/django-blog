@@ -22,15 +22,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = '*bf*u6mi5h%g(eq&-=n=lt0ohn%h202^s9uwu+796jy))adoz%'
 
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-
 ALLOWED_HOSTS = [
     'localhost', 
     '127.0.0.1',
-    'www.xavid.io',
-    'xavid.io',
-    '13.55.136.6'
 ]
 
 # SMTP/Email configuration
@@ -52,7 +46,7 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
-    'django.contrib.staticfiles',
+    #'django.contrib.staticfiles',
     'posts',
     'blog',
     'waive'
