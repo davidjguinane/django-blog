@@ -23,12 +23,14 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '*bf*u6mi5h%g(eq&-=n=lt0ohn%h202^s9uwu+796jy))adoz%'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = [
     '13.55.102.210',
     'localhost', 
-    '127.0.0.1'
+    '127.0.0.1',
+    'www.xavid.io',
+    'xavid.io'
 ]
 
 # SMTP/Email configuration
