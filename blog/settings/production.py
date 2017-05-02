@@ -6,7 +6,7 @@ DEFAULT_FILE_STORAGE = 'aws_storage_classes.MediaStorage'
 STATICFILES_STORAGE = 'aws_storage_classes.StaticStorage'
 AWS_ACCESS_KEY_ID = 'AKIAJM6WYOVTZISQKMHQ'
 SECRET_ACCESS_KEY_ID = 'lDmfhrVOep3rIUhZ6JVALuuf7f+j3K2LIzD4cWws'
-AWS_STORAGE_BUCKET_NAME = 'xavid.io'
+AWS_STORAGE_BUCKET_NAME = 'xavid'
 AWS_QUERYSTRING_AUTH = False
 
 
@@ -29,5 +29,5 @@ ALLOWED_HOSTS += [
 #STATIC_URL = 'https://{0}/static/'.format(AWS_S3_DOMAIN)
 #MEDIA_URL = 'https://{0}/media/'.format(AWS_S3_DOMAIN)
 
-STATIC_URL = 'https://xavid.io.s3.amazonaws.com/static/'
-MEDIA_URL = 'https://xavid.io.s3.amazonaws.com/media/'
+STATIC_URL = 'https://xavid.s3.amazonaws.com/static/'
+MEDIA_URL = 'https://xavid.s3.amazonaws.com/media/'
