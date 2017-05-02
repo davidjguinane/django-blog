@@ -7,6 +7,7 @@ STATICFILES_STORAGE = 'aws_storage_classes.StaticStorage'
 AWS_ACCESS_KEY_ID = 'AKIAJM6WYOVTZISQKMHQ'
 SECRET_ACCESS_KEY_ID = 'lDmfhrV0ep3rlUhZ6JVALuuf7f+j3K2LlzD4cWws'
 AWS_STORAGE_BUCKET_NAME = 'xavid.io'
+AWS_QUERYSTRING_AUTH = False
 
 
 INSTALLED_APPS += [
@@ -30,6 +31,3 @@ ALLOWED_HOSTS += [
 
 STATIC_URL = 'https://xavid.io.s3.amazonaws.com/static/'
 MEDIA_URL = 'https://xavid.io.s3.amazonaws.com/media/'
-
-STATIC_ROOT = '/var/www/django-blog/static/'
-MEDIA_ROOT = '/var/www/django-blog/media/'
