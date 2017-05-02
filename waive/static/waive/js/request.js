@@ -29,7 +29,8 @@ $(document).ready(function(){
 				var Tz = result["Tz"] //
 				var date = result["fdate"] // Date and time of data
 				var Hmax = result["Hmax"] //
-				var SST = result["SST"] // Surface Sea Temperature
+				var temp = parseFloat(result["SST"]) // Surface Sea Temperature
+                var SST = temp.toFixed(2) // Formatted to two decimal places
 				var Dir_Tp_TRUE = result["Dir_Tp_TRUE"] // 
 				var Tp = result["Tp"] //
 				var theta1 = Math.abs(Dir_Tp_TRUE-90) // Angle of incidence, 90 degrees is beach angle

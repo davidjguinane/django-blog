@@ -24,22 +24,22 @@ class WaiveDataView(View):
 			data = response.json()
 			# Returns the Wave Data Records in a List
 			wave_data = data['result']['records']
-			print(wave_data)
+			#print(wave_data)
 			# The actual data needed is in a Dictionary inside the Records (wave_data) List
 			# Get the last record
-			i = -1
+			i = -2
 			for entry in wave_data:
 				i += 1
-			print(i)
+			#print(i)
 			# Convert the Data into a more readable format
 			date = wave_data[i]['DateTime']
-			print(date)
+			#print(date)
 			dateobject = dt.datetime.strptime(date, '%Y-%m-%dT%H:%M:%S')
-			print(dateobject)
-			fdate = dateobject.strftime('%A %b %Y %I:%M%p')
-			print(fdate)
+			#print(dateobject)
+			fdate = dateobject.strftime('%A %d %b %Y %I:%M%p')
+			#print(fdate)
 			Hs = wave_data[i]['Hsig'] # Significant wave height, an average of the highest third of the waves in a record (26.6 minute recording period).
-			print(Hs)
+			#print(Hs)
 			Hmax = wave_data[i]['Hmax'] # The maximum wave height in the record.
 			Tz = wave_data[i]['Tz'] # The zero upcrossing wave period.
 			Tp = wave_data[i]['Tp'] # The peak energy wave period.
