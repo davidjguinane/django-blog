@@ -6,3 +6,5 @@ include
 .DS_Store
 .pyc
 .docx
+.boto
+~/.boto
