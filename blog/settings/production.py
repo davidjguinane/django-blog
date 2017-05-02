@@ -5,7 +5,7 @@ DEBUG = False
 DEFAULT_FILE_STORAGE = 'aws_storage_classes.MediaStorage'
 STATICFILES_STORAGE = 'aws_storage_classes.StaticStorage'
 AWS_ACCESS_KEY_ID = 'AKIAJM6WYOVTZISQKMHQ'
-SECRET_ACCESS_KEY_ID = 'lDmfhrV0ep3rlUhZ6JVALuuf7f+j3K2LlzD4cWws'
+SECRET_ACCESS_KEY_ID = 'lDmfhrVOep3rIUhZ6JVALuuf7f+j3K2LIzD4cWws'
 AWS_STORAGE_BUCKET_NAME = 'xavid.io'
 AWS_QUERYSTRING_AUTH = False
 
