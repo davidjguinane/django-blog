@@ -4,6 +4,12 @@
 
 {% block title %} Waive Surf Predictor {% endblock %}
 
+{% block script %}
+<script type="text/javascript" src="{% static 'waive/js/request.js' %}"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+{% endblock %}
+
+
 {% block tabs %} 
 
 <div class="mdl-layout__tab-bar mdl-js-ripple-effect">
@@ -33,6 +39,77 @@
 {% endblock %}  
 
 {% block content %}
+
+<section class="mdl-section section-color-grey">
+    <div class="mdl-grid portfolio-max-width mdl-grid-align-center">
+        <div class="mdl-cell mdl-cell--6-col mdl-card mdl-shadow--2dp">
+            <canvas id="myChart" width="300" height="150"></canvas>
+            <script>
+                var ctx = document.getElementById("myChart");
+                var scatterChart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    datasets: [{
+                        label: 'Wave Height',
+                        data: [{
+                            x: -10,
+                            y: 0
+                        }, {
+                            x: 0,
+                            y: 10
+                        }, {
+                            x: 10,
+                            y: 5
+                        }]
+                    }]
+                },
+                options: {
+                    scales: {
+                        xAxes: [{
+                            type: 'linear',
+                            position: 'bottom'
+                        }]
+                    }
+                }
+            });
+            </script>           
+        </div>
+    </div>
+    <div class="mdl-grid portfolio-max-width mdl-grid-align-center">
+        <div class="mdl-cell mdl-cell--6-col mdl-card mdl-shadow--2dp">
+            <canvas id="myChart2" width="300" height="150"></canvas>
+            <script>
+                var ctx = document.getElementById("myChart2");
+                var scatterChart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    datasets: [{
+                        label: 'Wave Period',
+                        data: [{
+                            x: -10,
+                            y: 0
+                        }, {
+                            x: 0,
+                            y: 10
+                        }, {
+                            x: 10,
+                            y: 5
+                        }]
+                    }]
+                },
+                options: {
+                    scales: {
+                        xAxes: [{
+                            type: 'linear',
+                            position: 'bottom'
+                        }]
+                    }
+                }
+            });
+            </script>           
+        </div>
+    </div>
+</section>
 
 <section class="mdl-section section-color-grey">
     <div class="mdl-grid portfolio-max-width">

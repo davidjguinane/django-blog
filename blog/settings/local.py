@@ -1,5 +1,8 @@
 from blog.settings.base import *
 
+# Local Security Key not used in Production 
+SECRET_KEY = 'w*0+7s4wtj0ox!(w0*os=+ou5%q5lb1)&@c4-m$#4fvi1w4rz8'
+
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
