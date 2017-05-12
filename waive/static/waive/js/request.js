@@ -14,6 +14,7 @@ $(document).ready(function(){
 		$.ajax({
 			type: "GET",
 			url: '/waive/data',
+            timeout: 3000,
 			beforeSend: function() {
 				start_loader();
 			},
@@ -180,7 +181,6 @@ $(document).ready(function(){
                     $('#forecast-date').html(date)   
 		        }
 			}
-			
 		});
 		return false;
 	}

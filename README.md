@@ -1,10 +1,10 @@
 # README #
 
-This README documents the steps required to get the Umanity Application and Development Environement up and running.
+This README documents the steps required to get the Application and Development Environement up and running.
 
 **Quick summary**
 
-This repository is essential to controlling the production and development versions of Umanity code. 
+This repository is essential to controlling the production and development versions of code. 
 
 **Version**
 
@@ -14,7 +14,7 @@ Version: Development
 
 Found an error? Something need updating? Edit the README using [Markdown](https://bitbucket.org/tutorials/markdowndemo).
 
-## Umanity Development Set Up ##
+##  Development Set Up ##
 
 ### Dependencies ###
 
@@ -24,7 +24,7 @@ Found an error? Something need updating? Edit the README using [Markdown](https:
 
 ##### Max OS/Unix #####
 
-Most Unix machines come pre-installed with Python. Umanity requires version 3.5 x. To check your Python version, run the command:
+Most Unix machines come pre-installed with Python. Requires version 3.5 x. To check your Python version, run the command:
 
 	$ python -V
 
@@ -52,7 +52,7 @@ To test that Python was installed correctly open Command Prompty or Windows Powe
 
 #### Setup a Virtual Environement - virtualenv ####
 
-It's common practice to use a virtualenv (virtual environment) for Python/Django projects. A virtualenv is used to create a self-contained development environment. The benefits of this approach is that upgrading packages or dependencies for other projects will not affect the function of the Umanity project, as each project is seperated into its own virtual environment container.
+It's common practice to use a virtualenv (virtual environment) for Python/Django projects. A virtualenv is used to create a self-contained development environment. The benefits of this approach is that upgrading packages or dependencies for other projects will not affect the function of the project, as each project is seperated into its own virtual environment container.
 
 Think of `virtualenv` as a completely isolated container within your computer, where you can install any version of Python and/or libraries and it won't affect anything outside that container.
 
@@ -60,23 +60,23 @@ Install virtualenv with the following command:
 
 	$ pip install virtualenv
 
-Create a `/umanity` folder in desired directory:
+Create a `/projectname` folder in desired directory:
 	
-	$ mkdir umanity
-	$ cd umanity
-	$ virtualenv --no-site-packages u-env
+	$ mkdir projectname
+	$ cd projectname
+	$ virtualenv --no-site-packages env
 
 Activate virtualenv:
 
 Unix:
 
-	$ source u-env/bin/activate    
+	$ source env/bin/activate    
 
 Windows:
 
-	$ u-env\scripts\activate
+	$ env\scripts\activate
 
-You should now see (u-env) before your prompt, (u-env)$, indicating that you're running within the 'u-env' virtualenv.
+You should now see (env) before your prompt, (env)$, indicating that you're running within the 'env' virtualenv.
 To exit the virtualenv, type the following command:
 
 	$ deactivate
@@ -85,7 +85,7 @@ Then reactivate when you're ready to work again.
 
 #### Installing Git ####
 
-Git will be used for version control of the Umanity software. If you have Git installed, you can check your current version with the following command:
+Git will be used for version control of the software. If you have Git installed, you can check your current version with the following command:
 
 	$ git --version
 
@@ -99,13 +99,13 @@ On Unix, `git` commands are run from the Terminal.
 
 For Windows, it may be necessary to download a Unix Terminal to run Git commands.
 
-#### Cloning Umanity Code from Git Repo #####
+#### Cloning  Code from Git Repo #####
 
-To clone the Umanity Git Repository into your `/umanity` directory, navigate to the directory, then run the following command:
+To clone the Git Repository into your `/projectname` directory, navigate to the directory, then run the following command:
 
-	$ git clone https://davidjguinane@bitbucket.org/davidjguinane/umanity.git .
+	$ git clone https://davidjguinane@bitbucket.org/davidjguinane/projectname.git .
 
-This code will only work if the `/umanity` folder is empty.
+This code will only work if the `/projectname` folder is empty.
 
 Before proceeding, ensure the file `.gitignore` is in the main project directory.
 
@@ -121,7 +121,7 @@ Ensure the following is included in the file:
 
 #### Python Package Management - easy_install and pip ####
 
-`easy_install` and `pip` are Python Package Managers. These tools make it much easier to install and upgrade Python packages and install the Umanity package dependencies.
+`easy_install` and `pip` are Python Package Managers. These tools make it much easier to install and upgrade Python packages and install the package dependencies.
 
 `easy_install` must be downloaded. To download, go to the Python Package Index (PyPI). You need to download `setuptools`, which includes *easyinstall*. Download the executable (.exe) file for Windows, or the package egg (.egg) for Unix. You can install it directly from the file.
 
@@ -131,13 +131,13 @@ Ensure the following is included in the file:
 
 #### Using Package Management to install Dependencies ####
 
-With the newly installed `pip`, it can now be used to install all the Python dependencies required by Umanity.
+With the newly installed `pip`, it can now be used to install all the Python dependencies.
 
 Navigate to the directory that contains `requirements.txt`, and run:
 
 	$ pip install -r requirements.txt 
 
-This automates the task of dependency installation, however a Manual Installation procedure has been provided, which describes how to install each package individually, with a brief overview of what the package is used for in the Umanity project. 
+This automates the task of dependency installation, however a Manual Installation procedure has been provided, which describes how to install each package individually, with a brief overview of what the package is used for in the project. 
 
 #### freeze ####
 
@@ -161,17 +161,17 @@ Naturally, for a Django application to work, we need Django as a minimum.
 
 To install Django on Unix, run the following command:
 
-	$ pip install -U django==1.10.4
+	$ pip install -U django==version
 
 If the above command doesn't work:
 	
-	$ sudo pip install -U django==1.10.4
+	$ sudo pip install -U django==version
 
 ##### Windows #####
 
 To install Django on Windows, run the following command:
 
-	$ pip install -U django==1.10.4
+	$ pip install -U django==version
 
 You can check the installed Django version by running the following command:
 
@@ -185,9 +185,9 @@ You can check the installed Django version by running the following command:
 
 [ Documentation ](http://www.django-rest-framework.org/#requirements)
 
-The DRF is a Django Application that allows for the easy creation of an API (Application Package Index). DRF contains the classes and methods to serialize the data to JSON or XML. Umanity uses serialization to JSON data. 
+The DRF is a Django Application that allows for the easy creation of an API (Application Package Index). DRF contains the classes and methods to serialize the data to JSON or XML. uses serialization to JSON data. 
 
-The API creates a central interface to the Umanity data that is recognisable by differing environments (iOS and Android). 
+The API creates a central interface to the data that is recognisable by differing environments (iOS and Android). 
 
 ##### Max OS/Unix #####
 
@@ -212,16 +212,6 @@ To install Markdown, run the following command:
 To install Django-Filter, run the following command:
 
 	$ pip install django-filter==1.0.1
-
-#### Install Pillow ####
-
-Pillow is required for the ImageField in UserProfile Model. This ImageField is required for User Profile Icon's.
-
-Pillow will also be used in place of OpenCV to handle the image processing requirements for User posts.  
-
-To install Pillow, run the following command:
-
-	$ pip install Pillow==3.4.2
 
 #### psycopg2 ####
 
@@ -318,13 +308,13 @@ A test Database has been created for use in development.
 
 The production database is different from the test/development database. This database contains the Live Production Server Database, and should not be edited. 
 
-### Umanity Software Contribution Specification ###
+### Software Contribution Specification ###
 
-The following specification details the rules and guidelines for contributing to the Umanity project. 
+The following specification details the rules and guidelines for contributing to the project. 
 
 #### Workflow ####
 
-> 1. Navigate to the Umanity project folder
+> 1. Navigate to the project folder
 > 2. Activate virtualenv
 > 3. Create and checkout a new git branch
 > 4. Develop
@@ -336,12 +326,12 @@ The following specification details the rules and guidelines for contributing to
 
 #### Rules ####
 
-> 1. First, create a `dev` directory in the root `umanity` directory. Navigate to the `dev` directory.
+> 1. First, create a `dev` directory in the root `projectname` directory. Navigate to the `dev` directory.
 > 2. Call the following command:
 
 	$ git clone /path/to/your/project/
 
-This command creates an exact copy of the Umanity repo, which includes all commits and branches. Always develop from this directory by creating separate branches for each major change to the Umanity project.
+This command creates an exact copy of the repo, which includes all commits and branches. Always develop from this directory by creating separate branches for each major change to the project.
 
 > 3. Create a new development branch:
 
@@ -376,16 +366,3 @@ This command creates an exact copy of the Umanity repo, which includes all commi
 
 	$ python manage.py test app-name
 
-> 3. 
-
-#### Code review ####
-
-> 1. Code to be reviewed by David/Sam prior to deployment or merging with `master` branch.
-
-#### Deployment ####
-
-To be completed
-
-### Who do I talk to? ###
-
-The repository owner is David Guinane. Contact david.j.guinanee@gmail.com. The secondary contact is Sam Gorle. Contact xxx.@mail.com 
