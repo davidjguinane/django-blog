@@ -28,10 +28,10 @@ ALLOWED_HOSTS = [
 EMAIL_USE_SSL = True
 EMAIL_TIMEOUT = 1800
 DEFAULT_FROM_EMAIL = ''
-SERVER_EMAIL = ''
+SERVER_EMAIL = 'david.j.guinane@gmail.com'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 465
-EMAIL_HOST_USER = ''
+EMAIL_HOST_USER = 'david.j.guinane@gmail.com'
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 
 with open(os.path.join(BASE_DIR, 'email_password.txt')) as email_password:
