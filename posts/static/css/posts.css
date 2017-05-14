@@ -12,6 +12,9 @@ form div.mdl-textfield {
 }
 
 .mdl-grid-align-center {
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
   align-items: center;
   justify-content: center;
 }
@@ -66,12 +69,17 @@ img.blog-image {
   display: none;
 }
 
-#surfTable {
+table {
   width: 100%;
 }
 
 #surfTable thead {
   width: 100%;
+}
+
+img.surf-type {
+  max-width: 100%;
+  height: auto;  
 }
 
 img.responsive-image {
@@ -147,4 +155,8 @@ img.social-media-icon {
   overflow: hidden;
   padding: 16px;
   width: 90%;
+}
+
+.location-heading {
+  margin: 0 0 0 0;
 }

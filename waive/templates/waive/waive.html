@@ -13,83 +13,76 @@
 {% block tabs %} 
 
 <div class="mdl-layout__tab-bar mdl-js-ripple-effect">
-  <a href="#fixed-tab-1" class="mdl-layout__tab is-active">Current</a>
-  <a href="#fixed-tab-2" class="mdl-layout__tab">Forecasted</a>
+  <a href="#scroll-tab-1" class="mdl-layout__tab is-active">Surf</a>
+  <a href="#scroll-tab-2" class="mdl-layout__tab">Tides</a>
 </div>
 
 {% endblock %}
 
 {% block tabscontent %}
-<section class="mdl-layout__tab-panel is-active" id="fixed-tab-1">
+<section class="mdl-section section-color-grey">
     <div class="mdl-grid portfolio-max-width mdl-grid-align-center">
         <div class="mdl-cell mdl-cell--6-col">
-          <div class="page-content">
-            {% include 'waive/surf_forecast.html' %}
-          </div>
+            <h4 class="location-heading">Farnborough Surf Wave Predictor</h4>
+            The surf wave predictor in near real time.         
         </div>
     </div>
 </section>
-<section class="mdl-layout__tab-panel" id="fixed-tab-2">
+
+{% include 'waive/surf_forecast.html' %}
+
+<section class="mdl-layout__tab-panel" id="scroll-tab-2">
     <div class="mdl-grid portfolio-max-width">
-        <div class="mdl-cell mdl-cell--12-col">
-          <div class="page-content">Forecasted AI Prediction</div>
+        <div class="mdl-cell mdl-cell--6-col">
+          <div class="mdl-grid portfolio-max-width mdl-grid-align-center">
+            <div class="mdl-cell mdl-cell--6-col">
+              <div class="page-content">
+                <table id="surfTable" class="mdl-data-table mdl-js-data-table mdl-shadow--2dp">
+                  <thead>
+                    <tr>
+                        <th class="mdl-data-table__cell--non-numeric">Current tide level</th>
+                        <th class="mdl-data-table__cell--non-numeric">+3.1</th>
+                    </tr>
+                  </thead>
+                  <thead>
+                    <tr>
+                        <th class="mdl-data-table__cell--non-numeric">Tide</th>
+                        <th class="mdl-data-table__cell--non-numeric">High</th>
+                        <th class="mdl-data-table__cell--non-numeric">Low</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td class="mdl-data-table__cell--non-numeric">AM</td>
+                      <td id="breaking-wave-angle">TBA</td>
+                      <td id="breaking-wave-angle">TBA</td>
+                    </tr>
+                    <tr>
+                      <td class="mdl-data-table__cell--non-numeric">Height (m)</td>
+                      <td id="breaking-wave-angle">TBA</td>
+                      <td id="breaking-wave-angle">TBA</td>
+                    </tr>
+                    <tr>
+                      <td class="mdl-data-table__cell--non-numeric">PM</td>
+                      <td id="breaking-wave-angle">TBA</td>
+                      <td id="breaking-wave-angle">TBA</td>
+                    </tr>
+                    <tr>
+                      <td class="mdl-data-table__cell--non-numeric">Height (m)</td>
+                      <td id="breaking-wave-angle">TBA</td>
+                      <td id="breaking-wave-angle">TBA</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+        </div>    
         </div>
     </div>
 </section>
 {% endblock %}  
 
 {% block content %}
-
-<section class="mdl-section">
-    <div class="mdl-grid portfolio-max-width mdl-grid-align-center">
-        <div class="mdl-cell mdl-cell--6-col mdl-card mdl-shadow--2dp">
-            <canvas id="myChart" width="300" height="150"></canvas>
-            <script>
-            var ctx = document.getElementById("myChart");
-            var scatterChart = new Chart(ctx, {
-                type: 'line',
-                data: {
-                    labels: ['1:00pm','2:00pm','3:00pm','4:00pm','5:00pm','6:00pm','7:00pm','8:00pm','9:00pm','10:00pm','11:00pm','12:00pm'],
-                    datasets: [{
-                        type: 'line',
-                        label: 'Wave Height',
-                        data: [1, 0.9, 0.7, 0.9, 1.0, 1.2, 1.4, 1.5,1.3,1.2,1.1,0.9],
-                    },
-                    {
-                        type: 'line',
-                        label: 'Wave Period',
-                        data: [5, 6, 5.4, 5.6, 6.2, 7.1, 9.5, 12.5,15.0,17.0,16.4,15.2],
-                    }]
-                },
-                options: {
-                    hover: {
-                        // Overrides the global setting
-                        mode: 'index'
-                    }
-                }
-            });
-            </script>           
-        </div>
-    </div>
-</section>
-
-<section class="mdl-section section-color-grey">
-    <div class="mdl-grid portfolio-max-width">
-        <div class="mdl-cell mdl-cell--12-col mdl-card mdl-shadow--2dp portfolio-card">
-            <div class="mdl-card__title mdl-card--expand">
-                <h2 class="mdl-card__title-text">What the variables mean</h2>
-            </div>
-            <div class="mdl-card__supporting-text">
-                A detailed explanation of the variables and data used for the surf calculation.
-            </div>
-            <div class="mdl-card__actions mdl-card--border">
-                <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
-                Read more
-                </a>
-            </div>
-        </div>
-    </div>
-</section>
 <section class="mdl-section section-color-dark-grey">
     <div class="mdl-grid portfolio-max-width">
         <div class="mdl-cell mdl-cell--12-col mdl-font-text-center">
