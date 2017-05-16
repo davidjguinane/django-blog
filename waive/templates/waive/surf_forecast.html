@@ -6,12 +6,13 @@
         <div class="mdl-cell mdl-cell--6-col">
           <div class="page-content">
             <div id="loader">
-              <div>Fetching current wavebuoy data..</div>
+              <div><h6>Fetching current wave, wind & tide data...</h6></div>
               <div id="p2" class="mdl-progress mdl-js-progress mdl-progress__indeterminate"></div>
             </div>
-            <div class="mdl-font-text-center">
-              <strong>Prediction date/time:</strong><br>
-              <span id="forecast-date"></span>
+            <div id="forecast-date-container" class="mdl-card mdl-shadow--2dp date-header">
+              <div class="mdl-card__title section-color-red" style="color: #fff;">
+                <span id="forecast-date"></span>                
+              </div>
             </div>
             <table id="surfTable" class="mdl-data-table mdl-js-data-table mdl-shadow--2dp">
               <thead>
@@ -28,6 +29,10 @@
                 <tr>
                   <td class="mdl-data-table__cell--non-numeric">Breaking Type</td>
                   <td id="breaking-type"></td>
+                </tr>
+                <tr>
+                  <td class="mdl-data-table__cell--non-numeric">Swell Direction</td>
+                  <td id="swell-direction"></td>
                 </tr>
                 <tr>
                   <td class="mdl-data-table__cell--non-numeric">Wind Type</td>
@@ -57,6 +62,8 @@
             </table>
           </div>
         </div>
+        <div class="mdl-cell mdl-cell--6-col">
+        </div>
     </div>
     </section>
   <section class="mdl-layout__tab-panel is-active" id="scroll-tab-1">
@@ -64,7 +71,7 @@
       <h5>Summary (Last 6hrs)</h5>
     </div>
       <div class="mdl-grid portfolio-max-width mdl-grid-align-center">
-          <div class="mdl-cell mdl-cell--6-col">
+          <div class="mdl-cell mdl-cell--12-col">
             <div class="page-content">
               <canvas id="myChart" width="300" height="150"></canvas>
               <script>

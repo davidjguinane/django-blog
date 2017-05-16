@@ -11,6 +11,10 @@ form div.mdl-textfield {
   width: 100%;
 }
 
+#forecast-date-container {
+  display: none;
+}
+
 .mdl-grid-align-center {
   -ms-flex-align: center;
   -webkit-align-items: center;
@@ -28,6 +32,9 @@ form div.mdl-textfield {
   padding-bottom: 1rem;
 }
 
+.section-color-red {
+  background-color: #F44336;
+}
 .section-color-grey {
   background-color: #F5F5F5;
 }
@@ -48,6 +55,10 @@ form div.mdl-textfield {
 
 .mdl-font-black {
   color: #424242;
+}
+
+.mdl-font-white {
+  color: #ffffff;
 }
 
 .mdl-font-bold {
@@ -98,65 +109,13 @@ img.social-media-icon {
   margin: 0;
 }
 
-.mdl-flat-card {
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  font-size: 16px;
-  font-weight: 400;
-  min-height: 200px;
-  overflow: hidden;
+div .date-header {
   width: 100%;
-  z-index: 1;
-  position: relative;
-  background: #EEEEEE;
-  border: 1px solid #bdbdbd;
-  border-radius: 8px;
-  box-sizing: border-box;
-}
-
-.mdl-flat-card__media {
-    background-repeat: repeat;
-    background-position: 50% 50%;
-    background-size: cover;
-    background-origin: padding-box;
-    background-attachment: scroll;
-    box-sizing: border-box;
-}
-
-.mdl-flat-card__title {
-  -webkit-align-items: center;
-  -ms-flex-align: center;
-  align-items: center;
-  color: #000;
-  display: block;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-justify-content: stretch;
-  -ms-flex-pack: stretch;
-  justify-content: stretch;
-  line-height: normal;
-  padding: 1rem;
-  -webkit-perspective-origin: 165px 56px;
-  perspective-origin: 165px 56px;
-  -webkit-transform-origin: 165px 56px;
-  transform-origin: 165px 56px;
-  box-sizing: border-box;
-}
-
-.mdl-flat-card__text {
-  color: rgba(0,0,0,.54);
-  font-size: 1rem;
-  line-height: 18px;
-  overflow: hidden;
-  padding: 16px;
-  width: 90%;
+  margin-bottom: 1rem;
+  min-height: auto;
 }
 
 .location-heading {
   margin: 0 0 0 0;
 }
+

@@ -7,6 +7,7 @@ $(document).ready(function(){
 
 	function end_loader() {
 		$('#surfTable').css( "visibility", "visible" );
+        $('#forecast-date-container').css( "display", "block" );
 		$('#loader').css( "display", "none" );
 	}
 
@@ -22,6 +23,9 @@ $(document).ready(function(){
 				end_loader();
 				result = JSON.parse(data)
 				// VARIABLES
+                var wind_dir = result["wind_dir"]
+                var wind_type = result["wind_type"]
+                var wind_spd_kmh = result["wind_spd_kmh"]
 				var rho = 1025;
 				var g = 9.81; // gravity
 				var Wd = 19; // water depth
@@ -32,9 +36,9 @@ $(document).ready(function(){
 				var Hmax = result["Hmax"] //
 				var temp = parseFloat(result["SST"]) // Surface Sea Temperature
                 var SST = temp.toFixed(2) // Formatted to two decimal places
-				var Dir_Tp_TRUE = result["Dir_Tp_TRUE"] // 
+				var Dir_Tp = result["Dir_Tp_TRUE"] // 
 				var Tp = result["Tp"] //
-				var theta1 = Math.abs(Dir_Tp_TRUE-90) // Angle of incidence, 90 degrees is beach angle
+				var theta1 = Math.abs(Dir_Tp-90) // Angle of incidence, 90 degrees is beach angle
 				var Ndh=150 // the depth will be divided by this number to get the dh
 				var tol = 0.001;
 		        var L1 = dispRel(Wd,Tp,tol);
@@ -44,6 +48,27 @@ $(document).ready(function(){
 				var error = 'Corrupt data'
 
 				// CALCULATIONS
+
+                if (Dir_Tp>0 &&  Dir_Tp<11.25) {
+                    var Dir_Tp_TRUE = 'N'
+                } else if (Dir_Tp>11.25 &&  Dir_Tp<33.75) {
+                    var Dir_Tp_TRUE = 'NNE'
+                } else if (Dir_Tp>33.75 &&  Dir_Tp<56.25) {
+                    var Dir_Tp_TRUE = 'NE'
+                } else if (Dir_Tp>56.25 &&  Dir_Tp<78.75) {
+                    var Dir_Tp_TRUE = 'ENE'
+                } else if (Dir_Tp>78.75 &&  Dir_Tp<101.25) {
+                    var Dir_Tp_TRUE = 'E'
+                } else if (Dir_Tp>101.25 &&  Dir_Tp<123.75) {
+                    var Dir_Tp_TRUE = 'ESE'
+                } else if (Dir_Tp>123.75 &&  Dir_Tp<148.75) {
+                    var Dir_Tp_TRUE = 'SE'
+                } else if (Dir_Tp>148.75 &&  Dir_Tp<173.75) {
+                    var Dir_Tp_TRUE = 'SSE'
+                } else {
+                    var Dir_Tp_TRUE = 'S'
+                }
+
 				if (theta1>=0 && theta1<=90 && Hs>0 && Wd>0 && Tp>0) {
 					// f and theta arrays --------------------------
 		            var f = funLinSpaceArray(fp/3,fp*7,24);
@@ -152,6 +177,10 @@ $(document).ready(function(){
 		            	$('#breaking-wave-angle').html(thetam.toFixed(2) + '&#176')
 		            	$('#water-depth').html(hObj.toFixed(2) + 'm')
 		            	$('#breaking-type').html(breakType)
+                        $('#wind-type').html(wind_type)
+                        $('#wind-speed').html(wind_spd_kmh)
+                        $('#wind-direction').html(wind_dir)
+                        $('#swell-direction').html(Dir_Tp_TRUE)
 		            	$('#surface-temp').html(SST + '&#176C')
 		            	$('#forecast-date').html(date)
 		            }
@@ -160,6 +189,10 @@ $(document).ready(function(){
 		            	$('#breaking-wave-angle').html(error)
 		            	$('#water-depth').html(error)
 		            	$('#breaking-type').html(error)
+                        $('#swell-direction').html(error)
+                        $('#wind-type').html(error)
+                        $('#wind-speed').html(error)
+                        $('#wind-direction').html(error)
 		            	$('#surface-temp').html(error)
                         $('#forecast-date').html(date)
 		            }
@@ -168,6 +201,10 @@ $(document).ready(function(){
 		            	$('#breaking-wave-angle').html(error)
 		            	$('#water-depth').html(error)
 		            	$('#breaking-type').html(error)
+                        $('#wind-type').html(error)
+                        $('#wind-speed').html(error)
+                        $('#wind-direction').html(error)
+                        $('#swell-direction').html(error)
 		            	$('#surface-temp').html(error)
                         $('#forecast-date').html(date)
 		            }
@@ -177,6 +214,10 @@ $(document).ready(function(){
 	            	$('#breaking-wave-angle').html(error)
 	            	$('#water-depth').html(error)
 	            	$('#breaking-type').html(error)
+                    $('#wind-type').html(error)
+                    $('#wind-speed').html(error)
+                    $('#wind-direction').html(error)
+                    $('#swell-direction').html(error)
 	            	$('#surface-temp').html(error)
                     $('#forecast-date').html(date)   
 		        }
