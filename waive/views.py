@@ -68,7 +68,7 @@ class WaiveDataView(View):
 					elif wind_dir in offshore:
 						wind_type = 'Offshore'
 					else:
-						wind_type = 'Perpendicular'
+						wind_type = 'N/A'
 					wind_spd_kmh = wind_data[w]['wind_spd_kmh']
 			data = {'fdate': fdate,'Hs': Hs,'Hmax': Hmax, 'Tz': Tz, 'Tp': Tp, 'Dir_Tp_TRUE': Dir_Tp_TRUE, 'SST': SST, 'wind_dir':wind_dir, 'wind_type':wind_type, 'wind_spd_kmh':wind_spd_kmh}
 			return HttpResponse(json.dumps(data))
