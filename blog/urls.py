@@ -24,7 +24,6 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', HomeView.as_view(), name='home'),
     url(r'', include('posts.urls')),
-    url(r'', include('waive.urls')),
 ]
 
 
